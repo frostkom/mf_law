@@ -1,0 +1,40 @@
+@media all
+{
+	.widget.law_list
+	{
+		width: 100%;
+	}
+
+		.widget.law_list .section .company_logo
+		{
+			margin-bottom: 1em;
+			max-height: 12em;
+		}
+
+		.widget.law_list .watermark
+		{
+			border: .1em dashed #f00;
+			border-radius: 90% 2% 33% 2%/4% 46% 6% 37%;
+			color: #f00;
+			display: inline-block;
+			font-size: 2rem;
+			font-weight: bold;
+			opacity: .3;
+			padding: .1em .2em 0;
+			position: absolute;
+			right: 2.6em;
+			transition: all 1.5s ease;
+			-webkit-transform: rotate(-10deg) scale(1.2);
+			transform: rotate(-10deg) scale(1.2);
+			top: 1em;
+			user-select: none;
+		}
+
+			.widget.law_list .meta_box:hover .watermark
+			{
+				opacity: .6;
+				right: .5em;
+				-webkit-transform: rotate(-2deg) scale(1);
+				transform: rotate(-2deg) scale(1);
+			}
+}

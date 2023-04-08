@@ -1,0 +1,386 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-10-04 09:34+0100\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Martin Fors\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: sv_SE\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: esc_html__;esc_html_e;esc_attr__;esc_attr_e;__;_e\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SearchPath-0: ..\n"
+
+msgid "This law is not connected to any lists even though it's parent is. %sWould you like to add the same lists as preview on this law?%s"
+msgstr "Författningen är inte kopplad till någon lista även om den författning som den ska ersätta vid nästa publicering har det. %sVill du lägga till samma listor för förhandsvisning på denna författning?%s"
+
+msgid "Update"
+msgstr "Uppdatera"
+
+msgid "Add New"
+msgstr "Lägg till ny"
+
+msgid "Name"
+msgstr "Namn"
+
+msgid "What does the change mean?"
+msgstr "Vad innebär förändringen?"
+
+msgid "Links"
+msgstr "Länkar"
+
+msgid "Link to original law"
+msgstr "Länk till originalförfattning"
+
+msgid "What does the law say?"
+msgstr "Vad säger lagen?"
+
+msgid "There is no info yet"
+msgstr "Det finns ingen info ännu"
+
+msgid "Updated to"
+msgstr "Uppdaterad med ändringsföreskrift"
+
+msgid "Released"
+msgstr "Ändringsföreskrift beslutad"
+
+msgid "Valid from"
+msgstr "Gäller från"
+
+msgid "Valid to"
+msgstr "Gäller tom."
+
+msgid "Save"
+msgstr "Spara"
+
+msgid "Are you sure that you want to update this? It has already been revoked and it will be updated in those lists where it's already published"
+msgstr "Är du säker på att du vill uppdatera denna? Den har blivit upphävd och detta kommer att uppdateras i de listor som den redan är publicerad i"
+
+msgid "The law has been revoked. Contact an admin if this law needs to be updated"
+msgstr "Författningen har blivit upphävd. Kontakta en admin om denna författning behöver uppdateras"
+
+msgid "Are you sure that you want to update this? It will be updated in those lists where it's already published"
+msgstr "Är du säker på att du vill uppdatera denna? Det kommer att uppdateras i de listor där den redan är publicerad"
+
+msgid "The law is already published. Contact an admin if this law needs to be updated"
+msgstr "Författningen är redan publicerad. Kontakta en admin om denna författning behöver uppdateras"
+
+msgid "The law has been revoked so you can't create a new version"
+msgstr "Författningen har upphävts så du kan inte skapa en ny version"
+
+msgid "The law has not been published yet so you can't create a new version"
+msgstr "Författningen har inte publicerats ännu så du kan inte skapa en ny version"
+
+msgid "Save new version"
+msgstr "Spara ny version"
+
+msgid "Are you sure that you want to save a new version? This will replace the old one as soon as you've published new changes to a list"
+msgstr "Är du säker på att du vill spara en ny version? Detta kommer att ersätta den gamla så snart du publicerar nya ändringar till en lista"
+
+msgid "Created %s by %s"
+msgstr "Skapad %s av %s"
+
+msgid "Add"
+msgstr "Lägg till"
+
+msgid "Settings"
+msgstr "Inställningar"
+
+msgid "Law Number"
+msgstr "Tillämplig lagstiftning"
+
+msgid "Decided"
+msgstr "Beslutat"
+
+msgid "Comes in Effect"
+msgstr "Träder i kraft"
+
+msgid "Transitional Rules Exist"
+msgstr "Övergångsregler finns"
+
+msgid "Filters"
+msgstr "Filter"
+
+msgid "Area"
+msgstr "Område"
+
+msgid "Add new area"
+msgstr "Lägg till nytt område"
+
+msgid "Choose Here"
+msgstr "Välj här"
+
+msgid "Chapter"
+msgstr "Kapitel"
+
+msgid "Add new chapter"
+msgstr "Lägg till nytt kapitel"
+
+msgid "Group"
+msgstr "Grupp"
+
+msgid "Add new group"
+msgstr "Lägg till ny grupp"
+
+msgid "Type"
+msgstr "Typ"
+
+msgid "Add new law type"
+msgstr "Lägg till ny typ"
+
+msgid "Advanced"
+msgstr "Avancerat"
+
+msgid "Is replacing these laws"
+msgstr "Ersätter följande författning"
+
+msgid "Is replaced upon next publish"
+msgstr "Ersätts vid nästa publicering"
+
+msgid "List"
+msgstr "Lista"
+
+msgid "Preview"
+msgstr "Förhandsvisning"
+
+msgid "Published"
+msgstr "Publik"
+
+msgid "This has permanent effect on the customers public laws"
+msgstr "Detta blir omgående synligt i kundernas publika författningar"
+
+msgid "Add new list"
+msgstr "Lägg till ny lista"
+
+msgid "Laws"
+msgstr "Författningar"
+
+msgid "Toggle All"
+msgstr "Visa/dölj alla"
+
+msgid "Add new law to the list"
+msgstr "Lägg till ny författning till listan"
+
+msgid "Print"
+msgstr "Skriv ut"
+
+msgid "Are you sure? This will archive all laws in this list and reset requiements."
+msgstr "Är du säker? Detta kommer att arkivera alla författningar i denna lista och nollställa Uppfylls kraven."
+
+msgid "This is only active in public display mode"
+msgstr "Denna är bara aktiv i publikt visningsläge"
+
+msgid "Archive Evaluation"
+msgstr "Arkivera Utvärdering"
+
+msgid "Reset Requirements"
+msgstr "Nollställ Uppfylls kraven"
+
+msgid "There are no laws in this list"
+msgstr "Det finns inga författningar i denna lista"
+
+msgid "Trash"
+msgstr "Papperskorg"
+
+msgid "Created"
+msgstr "Skapad"
+
+msgid "Effects on the company"
+msgstr "Så berörs verksamheten"
+
+msgid "Requirements met"
+msgstr "Så påverkas verksamheten av förändringarna"
+
+msgid "Evaluation"
+msgstr "Utvärdering/Efterlevnad"
+
+msgid "Receipt"
+msgstr "Kvitterad"
+
+msgid "Comply with requirements"
+msgstr "Uppfylls kraven"
+
+msgid "Replaced by"
+msgstr "Ersätts av"
+
+msgid "Back to list"
+msgstr "Tillbaka till listan"
+
+msgid "Back to preview"
+msgstr "Tillbaka till förhandsvisning"
+
+msgid "Previous law"
+msgstr "Föregående författning"
+
+msgid "Next law"
+msgstr "Nästa författning"
+
+msgid "View on Front-End"
+msgstr "Visa på framsida"
+
+msgid "Edit in Admin"
+msgstr "Redigera i admin"
+
+msgid "Export"
+msgstr "Exportera"
+
+msgid "Import"
+msgstr "Importera"
+
+msgid "Please, enter all required fields"
+msgstr "Var vänlig fyll i alla obligatoriska fält"
+
+msgid "There is already a law with that number or name"
+msgstr "Det finns redan en lag med samma namn eller tillämplig lagstiftning"
+
+msgid "Other requirements"
+msgstr "Andra krav"
+
+msgid "The law was deleted"
+msgstr "Författningen raderades"
+
+msgid "The law was removed from the list"
+msgstr "Författningen togs bort från listan"
+
+msgid "I could not remove the law from the list"
+msgstr "Jag kunde inte ta bort författningen från listan"
+
+msgid "The law now has the same lists as it's parent (%d -> %d)"
+msgstr "Författningen har nu fått samma listor som den författning som den ska ersätta vid nästa publicering (%d -> %d)"
+
+msgid "The parent does seam to have any list either"
+msgstr "Den författning som ska ersättas vid nästa publicering verkar inte heller ha någon lista"
+
+msgid "The list was archived and the requirements were reset"
+msgstr "Listan arkiverades och Uppfylls kraven nollställdes"
+
+msgid "The requirements were reset on the list"
+msgstr "Uppfylls kraven nollställdes för listan"
+
+msgid "The law was created"
+msgstr "Författningen skapades"
+
+msgid "The law was updated"
+msgstr "Författningen uppdaterades"
+
+msgid "Old versions"
+msgstr "Gamla versioner"
+
+msgid "Revoked"
+msgstr "Upphävd"
+
+msgid "Unknown"
+msgstr "Okänd"
+
+msgid "Edit"
+msgstr "Redigera"
+
+msgid "Delete"
+msgstr "Radera"
+
+msgid "Remove from List"
+msgstr "Ta bort från listan"
+
+msgid "Differences"
+msgstr "Skillnader"
+
+msgid "New Laws"
+msgstr "Nya författningar"
+
+msgid "Display Columns"
+msgstr "Visa kolumner"
+
+msgid "Responsibility"
+msgstr "Ansvar"
+
+msgid "Show old"
+msgstr "Visa gamla"
+
+msgid "Display Mode"
+msgstr "Visningsläge"
+
+msgid "Choose Requirements Here"
+msgstr "Välj om kraven uppfylls här"
+
+msgid "Not Evaluated"
+msgstr "Ej utvärderad"
+
+msgid "Choose Receipt Here"
+msgstr "Välj om kvitterad här"
+
+msgid "Filter"
+msgstr "Filtrering"
+
+msgid "All"
+msgstr "Alla"
+
+msgid "User"
+msgstr "Användare"
+
+msgid "Search"
+msgstr "Sök"
+
+msgid "Recover"
+msgstr "Återställ"
+
+msgid "Link"
+msgstr "Länk"
+
+msgid "Summary"
+msgstr "Sammanfattning"
+
+msgid "Export All Laws"
+msgstr "Exportera alla författningar"
+
+msgid "Lists"
+msgstr "Listor"
+
+msgid "Check Evaluation"
+msgstr "Kontrollera efterlevnad"
+
+msgid "Default"
+msgstr "Standard"
+
+msgid "Columns"
+msgstr "Kolumner"
+
+msgid "Order"
+msgstr "Sortering"
+
+msgid "All Laws"
+msgstr "Alla författningar"
+
+msgid "You have to choose a list to export"
+msgstr "Du måste välja en lista att exportera"
+
+msgid "Display Law List"
+msgstr "Visa lista med författningar"
+
+msgid "Law List"
+msgstr "Lista med författningar"
+
+msgid "Table"
+msgstr "Tabell"
+
+msgid "Expired %s, but transitional rules apply to %s"
+msgstr "Utgången %s, men övergångsregler gäller till %s"
+
+msgid "Expired, but transitional rules apply to %s"
+msgstr "Utgången, men övergångsregler gäller till %s"
+
+msgid "Expires"
+msgstr "Upphör att gälla"
+
+msgid "Expired"
+msgstr "Upphörde att gälla"
+
+msgid "Heading"
+msgstr "Rubrik"
+
+msgid "Display"
+msgstr "Visa"
+

@@ -1,0 +1,45 @@
+@media all
+{
+	.company_logo
+	{
+		max-height: 150px;
+		margin-top: .5em;
+		object-fit: cover;
+	}
+
+	.list_preview
+	{
+		color: rgba(0, 0, 0, .1);
+		font-size: 6em;
+		margin-bottom: -1em;
+		pointer-events: none;
+		text-align: center;
+		-webkit-transform: rotate(-8deg) translateY(-.4em);
+		transform: rotate(-8deg) translateY(-.4em);
+		z-index: 1;
+	}
+
+	.toggle_header h3
+	{
+		cursor: pointer;
+		margin: .4em 0;
+	}
+
+	.form_select_multiple .select2
+	{
+		margin-bottom: .5em;
+	}
+}
+
+@media print
+{
+	.company_logo
+	{
+		max-height: 100px;
+	}
+
+	tr.toggle_item
+	{
+		display: table-row !important;
+	}
+}
