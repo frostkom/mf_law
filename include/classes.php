@@ -1563,7 +1563,7 @@ class mf_law
 		$intUserID = get_current_user_id();
 
 		update_user_meta($intUserID, 'search_column_ids', $this->column_ids);
-		update_user_meta($intUserID, 'search_responsibility_ids', $this->responsibility_ids);
+		//update_user_meta($intUserID, 'search_responsibility_ids', $this->responsibility_ids);
 		update_user_meta($intUserID, 'search_show_receipt', $this->show_receipt);
 		update_user_meta($intUserID, 'search_show_requirements', $this->show_requirements);
 
@@ -1572,13 +1572,13 @@ class mf_law
 		update_user_meta($intUserID, 'search_show_old', $this->show_old);
 	}
 
-	function remove_filter_if_not_exists($intUserID)
+	/*function remove_filter_if_not_exists($data = array()) //$intUserID
 	{
 		if(is_array($this->responsibility_ids) && count($this->responsibility_ids) > 0)
 		{
 			$responsibility_exists = false;
 
-			$arr_data = $this->get_responsibilities_for_select();
+			$arr_data = $this->get_responsibilities_for_select(array('list_id' => $this->list_id));
 
 			foreach($this->responsibility_ids as $responsibility_id)
 			{
@@ -1594,17 +1594,17 @@ class mf_law
 			{
 				$this->responsibility_ids = array();
 
-				update_user_meta($intUserID, 'search_responsibility_ids', $this->responsibility_ids);
+				update_user_meta($data['user_id'], 'search_responsibility_ids', $this->responsibility_ids);
 			}
 		}
-	}
+	}*/
 
 	function get_search_form()
 	{
 		$intUserID = get_current_user_id();
 
 		$this->column_ids = get_user_meta($intUserID, 'search_column_ids', true);
-		$this->responsibility_ids = get_user_meta($intUserID, 'search_responsibility_ids', true);
+		//$this->responsibility_ids = get_user_meta($intUserID, 'search_responsibility_ids', true);
 		$this->show_receipt = get_user_meta($intUserID, 'search_show_receipt', true);
 		$this->show_requirements = get_user_meta($intUserID, 'search_show_requirements', true);
 
@@ -1618,10 +1618,10 @@ class mf_law
 
 		$this->show_old = get_user_meta($intUserID, 'search_show_old', true);
 
-		$this->remove_filter_if_not_exists($intUserID);
+		//$this->remove_filter_if_not_exists(array('list_id' => $this->list_id, 'user_id' => $intUserID));
 	}
 
-	function get_responsibilities_for_select()
+	function get_responsibilities_for_select($data = array())
 	{
 		$arr_data = array();
 
@@ -1629,7 +1629,8 @@ class mf_law
 
 		$tbl_group_resp->select_data(array(
 			'select' => "responsibilityID, responsibilityName",
-			'where' => "listID = '".$this->list_id."'",
+			'where' => "listID = '".$data['list_id']."'",
+			//'debug' => true,
 		));
 
 		foreach($tbl_group_resp->data as $r)
@@ -1687,26 +1688,29 @@ class mf_law
 		}
 
 		// This won't show anyway, and it messes up with 'difference' on lists with only one 'responsibility'
-		//$arr_data_responsibility = $this->get_responsibilities_for_select();
+		if($this->list_id > 0) // && $_SERVER['REMOTE_ADDR'] == "46.194.88.126" || 1 == 1
+		{
+			$arr_data_responsibility = $this->get_responsibilities_for_select(array('list_id' => $this->list_id));
+		}
 
 		if(is_admin())
 		{
 			$container_one = show_select(array('data' => $this->get_data_columns_for_select(), 'name' => 'arrColumnID[]', 'text' => __("Display Columns", 'lang_law'), 'value' => $this->column_ids, 'xtra' => "class='multiselect'"));
 
-			/*if(count($arr_data_responsibility) > 0)
+			if(count($arr_data_responsibility) > 1)
 			{
 				$container_one .= show_select(array('data' => $arr_data_responsibility, 'name' => 'arrResponsibilityID[]', 'text' => __("Responsibility", 'lang_law'), 'value' => $this->responsibility_ids, 'xtra' => "class='multiselect'"));
-			}*/
+			}
 		}
 
 		else
 		{
 			$container_one = "<label for='arrColumnID'>".__("Display Columns", 'lang_law')."</label>".show_select(array('data' => $this->get_data_columns_for_select(), 'name' => 'arrColumnID[]', 'value' => $this->column_ids, 'xtra' => "class='multiselect'"));
 
-			/*if(count($arr_data_responsibility) > 0)
+			if(count($arr_data_responsibility) > 1)
 			{
 				$container_one .= "<label for='arrResponsibilityID'>".__("Responsibility", 'lang_law')."</label>".show_select(array('data' => $arr_data_responsibility, 'name' => 'arrResponsibilityID[]', 'value' => $this->responsibility_ids, 'xtra' => "class='multiselect'"));
-			}*/
+			}
 		}
 
 		$container_two = "";

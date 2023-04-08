@@ -3,7 +3,7 @@
 Plugin Name: MF Law
 Plugin URI: 
 Description: 
-Version: 7.6.10
+Version: 7.6.11
 Author: Martin Fors
 Author URI: http://martinfors.se
 Text Domain: lang_law
