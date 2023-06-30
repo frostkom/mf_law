@@ -32,6 +32,7 @@ class mf_law
 			$arr_data['effects_on_company'] = __("Effects on the company", 'lang_law'); // Previous key = 2
 			$arr_data['requirements_met'] = __("Requirements met", 'lang_law');
 			$arr_data['evaluation'] = __("Evaluation", 'lang_law'); // Previous key = 3
+			$arr_data['responsibility'] = __("Responsibility", 'lang_law');
 		}
 
 		$arr_data[4] = __("Receipt", 'lang_law');
@@ -409,7 +410,7 @@ class mf_law
 			mf_redirect($current_url);
 		}
 
-		if(isset($_POST['btnLawFilter']))
+		if(isset($_POST['btnLawFilter']) || isset($_POST['btnLawFilterClear']))
 		{
 			$this->column_ids = check_var('arrColumnID');
 			$this->responsibility_ids = check_var('arrResponsibilityID');
@@ -422,6 +423,19 @@ class mf_law
 			$this->display_mode = check_var('display_mode', 'char', true, 'published');
 
 			$this->show_old = check_var('strLawShowOld');
+
+			if(isset($_POST['btnLawFilterClear']))
+			{
+				$this->column_ids = array();
+				$this->responsibility_ids = array();
+
+				$this->show_receipt = "";
+				$this->show_requirements = "";
+
+				$this->search = "";
+
+				$this->show_old = "";
+			}
 
 			$this->set_search_form();
 		}
@@ -1563,7 +1577,7 @@ class mf_law
 		$intUserID = get_current_user_id();
 
 		update_user_meta($intUserID, 'search_column_ids', $this->column_ids);
-		//update_user_meta($intUserID, 'search_responsibility_ids', $this->responsibility_ids);
+		update_user_meta($intUserID, 'search_responsibility_ids', $this->responsibility_ids);
 		update_user_meta($intUserID, 'search_show_receipt', $this->show_receipt);
 		update_user_meta($intUserID, 'search_show_requirements', $this->show_requirements);
 
@@ -1604,7 +1618,7 @@ class mf_law
 		$intUserID = get_current_user_id();
 
 		$this->column_ids = get_user_meta($intUserID, 'search_column_ids', true);
-		//$this->responsibility_ids = get_user_meta($intUserID, 'search_responsibility_ids', true);
+		$this->responsibility_ids = get_user_meta($intUserID, 'search_responsibility_ids', true);
 		$this->show_receipt = get_user_meta($intUserID, 'search_show_receipt', true);
 		$this->show_requirements = get_user_meta($intUserID, 'search_show_requirements', true);
 
@@ -1646,6 +1660,9 @@ class mf_law
 		global $obj_company, $obj_list;
 
 		$out = "";
+
+		$has_filter = false;
+		$clear_filter_reason = "";
 
 		if(!isset($obj_company))
 		{
@@ -1693,11 +1710,23 @@ class mf_law
 			$arr_data_responsibility = $this->get_responsibilities_for_select(array('list_id' => $this->list_id));
 		}
 
+		if(is_array($this->column_ids) && count($this->column_ids) > 0)
+		{
+			$has_filter = true;
+			$clear_filter_reason .= "column";
+		}
+
+		if(is_array($this->responsibility_ids) && count($this->responsibility_ids) > 0)
+		{
+			$has_filter = true;
+			$clear_filter_reason .= "responsibility";
+		}
+
 		if(is_admin())
 		{
 			$container_one = show_select(array('data' => $this->get_data_columns_for_select(), 'name' => 'arrColumnID[]', 'text' => __("Display Columns", 'lang_law'), 'value' => $this->column_ids, 'xtra' => "class='multiselect'"));
 
-			if(count($arr_data_responsibility) > 1)
+			if(isset($arr_data_responsibility) && count($arr_data_responsibility) > 1)
 			{
 				$container_one .= show_select(array('data' => $arr_data_responsibility, 'name' => 'arrResponsibilityID[]', 'text' => __("Responsibility", 'lang_law'), 'value' => $this->responsibility_ids, 'xtra' => "class='multiselect'"));
 			}
@@ -1707,7 +1736,7 @@ class mf_law
 		{
 			$container_one = "<label for='arrColumnID'>".__("Display Columns", 'lang_law')."</label>".show_select(array('data' => $this->get_data_columns_for_select(), 'name' => 'arrColumnID[]', 'value' => $this->column_ids, 'xtra' => "class='multiselect'"));
 
-			if(count($arr_data_responsibility) > 1)
+			if(isset($arr_data_responsibility) && count($arr_data_responsibility) > 1)
 			{
 				$container_one .= "<label for='arrResponsibilityID'>".__("Responsibility", 'lang_law')."</label>".show_select(array('data' => $arr_data_responsibility, 'name' => 'arrResponsibilityID[]', 'value' => $this->responsibility_ids, 'xtra' => "class='multiselect'"));
 			}
@@ -1715,9 +1744,21 @@ class mf_law
 
 		$container_two = "";
 
+		if($this->search != '')
+		{
+			$has_filter = true;
+			$clear_filter_reason .= "search";
+		}
+
 		$container_one .= show_textfield(array('name' => 'strLawSearch', 'value' => $this->search, 'placeholder' => __("Text", 'lang_law')));
 
 		//if(IS_ADMIN)
+		if($this->show_old != '')
+		{
+			$has_filter = true;
+			$clear_filter_reason .= "old";
+		}
+
 		$container_one .= show_select(array('data' => get_yes_no_for_select(array('add_choose_here' => true, 'choose_here_text' => __("Show old", 'lang_law'))), 'name' => 'strLawShowOld', 'value' => $this->show_old));
 
 		if($this->list_id > 0)
@@ -1765,6 +1806,12 @@ class mf_law
 				}
 			}
 
+			if($this->show_receipt != '')
+			{
+				$has_filter = true;
+				$clear_filter_reason .= "receipt";
+			}
+
 			if(is_admin())
 			{
 				$container_two .= show_select(array('data' => get_yes_no_for_select(array('add_choose_here' => true, 'choose_here_text' => __("Choose Receipt Here", 'lang_law'))), 'name' => 'strLawShowReceipt', 'text' => __("Filter", 'lang_law'), 'value' => $this->show_receipt));
@@ -1778,41 +1825,18 @@ class mf_law
 			$arr_data = get_yes_no_for_select(array('add_choose_here' => true, 'choose_here_text' => __("Choose Requirements Here", 'lang_law')));
 			$arr_data['not_evaluated'] = __("Not Evaluated", 'lang_law');
 
+			if($this->show_requirements != '')
+			{
+				$has_filter = true;
+				$clear_filter_reason .= "requirements";
+			}
+
 			$container_two .= show_select(array('data' => $arr_data, 'name' => 'strLawShowRequirements', 'value' => $this->show_requirements));
 
 			//$container_two .= show_select(array('data' => $obj_list->get_responisibility_for_select(array('list_id' => $this->list_id)), 'name' => 'strLawResponsibility', 'value' => $this->law_responsibility));
 		}
 
-		$out .= "<form method='post' class='mf_form mf_search postbox'>
-			<div class='".(is_admin() ? "inside" : "flex_flow")."'>";
-
-				if($container_one != '' && $container_two != '')
-				{
-					if(is_admin())
-					{
-						$out .= "<div class='flex_flow'>
-							<div>".$container_one."</div>
-							<div>".$container_two."</div>
-						</div>";
-					}
-
-					else
-					{
-						$out .= $container_one
-						."</div><div class='flex_flow'>"
-						.$container_two;
-					}
-				}
-
-				else
-				{
-					$out .= $container_one.$container_two;
-				}
-
-				$out .= "<div class='form_button'>"
-					.show_submit(array('name' => 'btnLawFilter', 'text' => __("Filter", 'lang_law')))
-				."</div>"
-			."</div>";
+		$out .= "<form method='post' class='mf_form mf_search postbox'>";
 
 			if(!is_admin())
 			{
@@ -1850,6 +1874,44 @@ class mf_law
 
 				$out .= "</div>";
 			}
+
+			$out .= "<div".(is_admin() ? " class='inside'" : "").">
+				<div".(is_admin() ? "" : " class='flex_flow'").">";
+
+					if($container_one != '' && $container_two != '')
+					{
+						if(is_admin())
+						{
+							$out .= "<div class='flex_flow'>
+								<div>".$container_one."</div>
+								<div>".$container_two."</div>
+							</div>";
+						}
+
+						else
+						{
+							$out .= $container_one
+							."</div><div class='flex_flow'>"
+							.$container_two;
+						}
+					}
+
+					else
+					{
+						$out .= $container_one.$container_two;
+					}
+
+				$out .= "</div>
+				<div class='form_button'>"
+					.show_submit(array('name' => 'btnLawFilter', 'text' => __("Update Filter", 'lang_law')));
+
+					if($has_filter == true)
+					{
+						$out .= show_submit(array('name' => 'btnLawFilterClear', 'text' => __("Clear Filter", 'lang_law'))); //.$clear_filter_reason
+					}
+
+				$out .= "</div>"
+			."</div>";
 
 		$out .= "</form>";
 

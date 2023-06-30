@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-10-04 09:34+0100\n"
+"POT-Creation-Date: 2023-06-30 08:25+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Martin Fors\n"
 "Language-Team: \n"
@@ -207,6 +207,9 @@ msgstr "Uppfylls kraven"
 msgid "Replaced by"
 msgstr "Ersätts av"
 
+msgid "Responsibility"
+msgstr "Ansvar"
+
 msgid "Back to list"
 msgstr "Tillbaka till listan"
 
@@ -294,14 +297,17 @@ msgstr "Nya författningar"
 msgid "Display Columns"
 msgstr "Visa kolumner"
 
-msgid "Responsibility"
-msgstr "Ansvar"
-
 msgid "Show old"
 msgstr "Visa gamla"
 
 msgid "Display Mode"
 msgstr "Visningsläge"
+
+msgid "Choose Receipt Here"
+msgstr "Välj om kvitterad här"
+
+msgid "Filter"
+msgstr "Filtrering"
 
 msgid "Choose Requirements Here"
 msgstr "Välj om kraven uppfylls här"
@@ -309,11 +315,11 @@ msgstr "Välj om kraven uppfylls här"
 msgid "Not Evaluated"
 msgstr "Ej utvärderad"
 
-msgid "Choose Receipt Here"
-msgstr "Välj om kvitterad här"
+msgid "Update Filter"
+msgstr "Uppdatera filter"
 
-msgid "Filter"
-msgstr "Filtrering"
+msgid "Clear Filter"
+msgstr "Rensa filter"
 
 msgid "All"
 msgstr "Alla"
